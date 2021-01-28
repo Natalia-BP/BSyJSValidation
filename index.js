@@ -81,13 +81,17 @@ submitForm.addEventListener("submit", function (event) {
     }
 
     // City
-    if (city.value.length == 0) {
+    let cityResult = letter.test(city.value);
+    if (!cityResult || cityResult.length == 0) {
 
         city.classList.add("is-invalid");
 
+
     } else {
+
         city.classList.remove("is-invalid");
         city.classList.add("is-valid");
+        
     }
 
     // State
@@ -103,7 +107,7 @@ submitForm.addEventListener("submit", function (event) {
     }
 
     // Postal Code
-    if (postal.value.length == 6 || postal.value.length == 10) {
+    if (postal.value.length == 0 || postal.value.length == 6 || postal.value.length == 10) {
 
         postal.classList.add("is-invalid");
 
